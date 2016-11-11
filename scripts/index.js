@@ -8,7 +8,7 @@ import View3 from './components/View3';
 
 render((
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path="/react-starter-kit/" component={App}>
             <IndexRoute component={View1}></IndexRoute>
             <Route path="/view2" component={View2}></Route>
             <Route path="/view3" component={View3}></Route>

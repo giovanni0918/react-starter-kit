@@ -1,7 +1,7 @@
 import React from 'react';
 import Toolbar from './Toolbar';
 import NavDrawer from './NavDrawer';
-require('../../css/app.css');
+require('../../static/styles/app.css');
 
 export default class App extends React.Component {
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router';
-require('../../css/nav-drawer__list-item.css');
 
 export default class NavDrawer__ListItem extends React.Component {
 

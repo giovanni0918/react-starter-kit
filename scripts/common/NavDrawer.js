@@ -1,6 +1,5 @@
 import React from 'react';
 import NavDrawer__List from './NavDrawer__List';
-require('../../css/nav-drawer.css');
 
 export default class NavDrawer extends React.Component {
 

@@ -2,11 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: './src/js/index.js',
+    entry: './scripts/index.js',
     output: {
         path: __dirname,
-        publicPath: '/public',
-        filename: './public/bundle.js'
+        publicPath: '/static',
+        filename: './static/bundle.js'
     },
     module: {
         plugins: [new webpack.DefinePlugin({

@@ -1,5 +1,4 @@
 import React from 'react';
-require('../../css/toolbar.css');
 
 export default class Toolbar extends React.Component {
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import NavDrawer__ListItem from './NavDrawer__ListItem';
 import listItems from '../list-items';
-require('../../css/nav-drawer__list.css');
 
 export default class NavDrawer__List extends React.Component {
 
