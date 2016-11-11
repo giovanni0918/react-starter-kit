@@ -1,0 +1,10 @@
+.nav-drawer__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    word-wrap: normal;
+}
+
+.nav-drawer__list .collapsed>li {
+    display: none;
+}
