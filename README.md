@@ -2,14 +2,20 @@
 A React.js progressive-web-app starter-kit, built using Webpack module bundler and react-router.
 
 # Usage
-Clone repo
+Clone repo:
 - `$ git clone https://github.com/giovanni0918/react-starter-kit.git`
 
-Install dependencies (assumes node is installed):
+Navigate into the project directory:
+- `$ cd ~/Downloads/react-starter-kit`
+
+Install dependencies:
 - `$ npm install`
 
 Build dist directory and serve locally:
 - `$ npm run start`
+
+# Demo it
+<https://giovanni0918.github.io/react-starter-kit>
 
 # License
 - MIT: <https://mit-license.org>
