@@ -9,18 +9,28 @@ module.exports = {
         filename: './static/bundle.js'
     },
     module: {
-        plugins: [new webpack.DefinePlugin({
+        plugins: [
+            new webpack.DefinePlugin({
                 'process.env': {
-                    NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+                    NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
                 }
-            })],
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: true
+                }
+            })
+        ],
         loaders: [
             {
                 test: /.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: [
+                        'es2015', 'react'
+                    ],
+                    plugins: ['transform-react-constant-elements', 'transform-react-inline-elements']
                 }
             }, {
                 test: /\.css$/,

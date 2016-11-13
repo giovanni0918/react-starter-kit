@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="author" content="Giovanni Orlando Rivera">
@@ -30,7 +30,7 @@
 
 <body>
     <div id="app"></div>
-    <script src="static/bundle.js"></script>
+    <script async src="static/bundle.js"></script>
     <script async>
             (function(i, s, o, g, r, a, m) {
                 i['GoogleAnalyticsObject'] = r;
@@ -50,7 +50,7 @@
     <script async>
         //setup SW
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('static/sw.js')
+            navigator.serviceWorker.register('sw.js')
             .then(() => console.log('SW registered'))
             .catch((e) => console.warn('SW offline'));
         }

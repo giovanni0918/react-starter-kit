@@ -3,12 +3,13 @@ const path = require('path');
 const compression = require('compression');
 
 const app = express();
+const appName = 'react-starter-kit';
 
 // enable gzip compression on the server
 app.use(compression());
 
 // serve our static stuff like styles/app.css
-app.use('/react-starter-kit/static', express.static(path.join(__dirname, 'static')));
+app.use('/react-starter-kit/', express.static(__dirname));
 
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {
@@ -16,5 +17,5 @@ app.get('*', (req, res) => {
 });
 
 const PORT = process.env.PORT || 8080;
-process.env.NODE_ENV = "production";
-app.listen(PORT, () => console.log(`Listening at localhost:${PORT}`));
+
+app.listen(PORT, () => console.log(`Listening at localhost:${PORT}/${appName}/`));

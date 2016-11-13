@@ -12,7 +12,7 @@ Install dependencies:
 - `$ npm install`
 
 Build dist directory and serve locally:
-- `$ npm run start`
+- `$ npm start`
 
 # Demo it
 <https://giovanni0918.github.io/react-starter-kit>
