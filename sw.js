@@ -3,8 +3,6 @@ toolbox.options.debug = false;
 
 toolbox.precache([
     '/react-starter-kit/',
-    '/react-starter-kit/view2',
-    '/react-starter-kit/view3',
     'index.html',
     'static/bundle.js',
     'static/manifest.json',
@@ -20,8 +18,6 @@ toolbox.precache([
     'static/vendor/sw-toolbox.js'
 ]);
 toolbox.router.get('/react-starter-kit/', toolbox.fastest);
-toolbox.router.get('/react-starter-kit/view2', toolbox.fastest);
-toolbox.router.get('/react-starter-kit/view3', toolbox.fastest);
 toolbox.router.get('index.html', toolbox.fastest);
 toolbox.router.get('static/bundle.js', toolbox.fastest);
 toolbox.router.get('static/manifest.json', toolbox.fastest);
