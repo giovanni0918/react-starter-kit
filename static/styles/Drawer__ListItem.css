@@ -1,8 +1,8 @@
-.nav-drawer__list-item a:hover, .nav-drawer__list-item p:hover {
+.Drawer__ListItem a:hover, .Drawer__ListItem p:hover {
     background: #BBDEFB;
 }
 
-.nav-drawer__list-item a {
+.Drawer__ListItem a {
     display: block;
     height: 3em;
     line-height: 3em;

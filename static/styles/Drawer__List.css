@@ -1,10 +1,10 @@
-.nav-drawer__list {
+.Drawer__List {
     list-style-type: none;
     margin: 0;
     padding: 0;
     word-wrap: normal;
 }
 
-.nav-drawer__list .collapsed>li {
+.Drawer__List .collapsed>li {
     display: none;
 }
