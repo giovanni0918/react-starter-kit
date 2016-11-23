@@ -9,21 +9,9 @@ module.exports = {
         filename: './static/bundle.js'
     },
     module: {
-        plugins: [
-            new webpack.DefinePlugin({
-                'process.env': {
-                    NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
-                }
-            }),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: true
-                }
-            })
-        ],
         loaders: [
             {
-                test: /.jsx?$/,
+                test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
@@ -43,5 +31,17 @@ module.exports = {
                 loader: 'json'
             }
         ]
-    }
+    },
+    plugins: [
+            new webpack.DefinePlugin({
+                'process.env': {
+                    NODE_ENV: JSON.stringify('production')
+                }
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false
+                }
+            })
+    ]
 };
