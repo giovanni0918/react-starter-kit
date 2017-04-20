@@ -1,6 +1,8 @@
 # react-starter-kit
 A React.js progressive-web-app starter-kit, built using Webpack module bundler and react-router.
 
+[![Dependency Status](https://david-dm.org/giovanni0918/react-starter-kit.svg)](https://david-dm.org/giovanni0918/react-starter-kit.svg)  
+
 # Usage
 Clone repo:
 - `$ git clone https://github.com/giovanni0918/react-starter-kit.git`
