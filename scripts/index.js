@@ -1,17 +1,5 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, Route, browserHistory, IndexRoute} from 'react-router';
-import DrawerLayout from './common/DrawerLayout';
-import View1 from './components/View1';
-import View2 from './components/View2';
-import View3 from './components/View3';
+import { render } from 'react-dom';
+import DrawerLayout from './components/common/DrawerLayout';
 
-render((
-    <Router history={browserHistory}>
-        <Route path="/react-starter-kit/" component={DrawerLayout}>
-            <IndexRoute component={View1}></IndexRoute>
-            <Route path="/view2" component={View2}></Route>
-            <Route path="/view3" component={View3}></Route>
-        </Route>
-    </Router>
-), document.getElementById('app'));
+render(<DrawerLayout/>, document.getElementById('app'));

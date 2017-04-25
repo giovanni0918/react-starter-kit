@@ -13,13 +13,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: [
-                        'es2015', 'react'
-                    ],
-                    plugins: ['transform-react-constant-elements', 'transform-react-inline-elements']
-                }
+                exclude: /node_modules/
             }, {
                 test: /\.css$/,
                 loaders: ['style-loader', 'css-loader']
