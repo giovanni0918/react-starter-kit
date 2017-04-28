@@ -20,37 +20,25 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/ 
+*/
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'; // ES6
-import listItems from '../../list-items.js';
 
-const Drawer = ({ callback, open }) => (
-  <aside className={open ? "nav-drawer open" : "nav-drawer"}>
-    <nav>
-      <ul className="Drawer__List">
-        {
-          listItems.map((li, i) => (
-            <li key={i} className="Drawer__ListItem">
-              <Link to={li.href} onClick={callback}>
-                <span className="ListItem__emoji">{li.emoji}</span>
-                <span className="ListItem__title">{li.title}</span>
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </aside>
+const Repo = ({id, name, description, html_url}) => (
+  <li className='repo' id={id} title={name}>
+    <h3 className='repo__name'>{name}</h3>
+    <p className='repo__description'>Description: {description || 'Not Available for this Repo'}</p>
+    <p className='repo__html_url'>Url:
+      <a href={html_url} rel='noopener' target='_blank'>{html_url}</a>
+    </p>
+  </li>
 );
 
-Drawer.propTypes = {
-  "callback": PropTypes.func.isRequired,
-  "emoji": PropTypes.string.isRequired,
-  "href": PropTypes.string.isRequired,
-  "open": PropTypes.bool.isRequired,
-  "title": PropTypes.string.isRequired
+Repo.propTypes = {
+  "id": PropTypes.number.isRequired,
+  "name": PropTypes.string.isRequired,
+  "description": PropTypes.string,
+  "html_url": PropTypes.string.isRequired
 };
 
-export default Drawer;
+export default Repo;

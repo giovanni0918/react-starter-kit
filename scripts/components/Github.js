@@ -20,37 +20,50 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/ 
+*/
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'; // ES6
-import listItems from '../../list-items.js';
+import RepoList from './RepoList';
 
-const Drawer = ({ callback, open }) => (
-  <aside className={open ? "nav-drawer open" : "nav-drawer"}>
-    <nav>
-      <ul className="Drawer__List">
-        {
-          listItems.map((li, i) => (
-            <li key={i} className="Drawer__ListItem">
-              <Link to={li.href} onClick={callback}>
-                <span className="ListItem__emoji">{li.emoji}</span>
-                <span className="ListItem__title">{li.title}</span>
-              </Link>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </aside>
-);
+const urlForUsername = username => `https://api.github.com/users/${username}/repos`;
 
-Drawer.propTypes = {
-  "callback": PropTypes.func.isRequired,
-  "emoji": PropTypes.string.isRequired,
-  "href": PropTypes.string.isRequired,
-  "open": PropTypes.bool.isRequired,
-  "title": PropTypes.string.isRequired
+export default class Github extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      repos: [],
+      loading: true,
+      requestFailed: false
+    }
+  }
+
+  componentDidMount() {
+    fetch(urlForUsername(this.props.username)).then((response) => {
+      if (!response.ok) {
+        this.setState({requestFailed: true, loading: false});
+        throw Error('Network request failed...');
+      }
+      response.json().then(data => {
+        this.setState({repos: data, loading: false});
+      });
+    }).catch((err) => {
+      this.setState({requestFailed: true, loading: false});
+      console.warn(err.message);
+    });
+  }
+
+  render() {
+    if (this.state.loading) {
+      return <p>Loading</p>;
+    } else if (this.state.requestFailed) {
+      return <p>Network request failed...</p>;
+    } else {
+      return <RepoList repos={this.state.repos}/>;
+    }
+  }
+}
+
+Github.propTypes = {
+  "username": PropTypes.string.isRequired
 };
-
-export default Drawer;

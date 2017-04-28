@@ -1,42 +1,57 @@
 .container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    background-color: #F5F5F5;
-    z-index: 0;
-    transition: all 0.2s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  background-color: #F5F5F5;
+  z-index: 0;
+  transition: all 0.2s ease;
 }
 
 .content {
-    position: fixed;
-    top: 56px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
-    background-color: #eeeeee;
-    z-index: 0;
-    font-size: 2em;
-    font-family: Arial, Helvetica, sans-serif;
-    color: dodgerblue;
+  position: fixed;
+  top: 56px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  background-color: #eeeeee;
+  z-index: 0;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: dodgerblue;
+}
+
+.content li {
+  word-wrap: break-word;
+}
+
+.content li p{
+  margin: 0.5rem 0.5rem 0.5rem 0;
 }
 
 .content p {
-    margin: 1em;
+  margin: 0.5rem;
+  color: black;
 }
 
 .flex-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .wrapper {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  max-width: 768px;
+  min-height: 100vh;
+}
+
+.ViewTitle {
+  text-align: center;
+  letter-spacing: 1px;
 }
