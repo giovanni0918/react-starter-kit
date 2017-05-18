@@ -31,7 +31,7 @@
   "homepage": "https://github.com/giovanni0918/react-starter-kit#readme",
   "dependencies": {
     "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.7",
+    "babel-loader": "^7.0.0",
     "babel-plugin-transform-react-constant-elements": "^6.9.1",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-preset-env": "^1.4.0",
@@ -45,7 +45,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router-dom": "^4.1.1",
-    "style-loader": "^0.16.1",
+    "style-loader": "^0.17.0",
     "sw-precache": "^5.1.0",
     "sw-toolbox": "^3.4.0",
     "url-loader": "^0.5.7",
