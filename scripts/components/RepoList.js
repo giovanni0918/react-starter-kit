@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 Giovanni Orlando
+Copyright (c) 2019 Giovanni Orlando
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,18 +21,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import Repo from './Repo';
 
-const RepoList = ({repos}) => (
-  <ul className='RepoList'>
-    {repos.sort((a, b) => b.id - a.id).map((repo, i) => <Repo key={i} {... repo}/>)}
-  </ul>
+const RepoList = ({ repos }) => (
+    <ul className="RepoList">
+        {repos
+            .sort((a, b) => b.id - a.id)
+            .map((repo, i) => (
+                <Repo key={i} {...repo} />
+            ))}
+    </ul>
 );
 
 RepoList.propTypes = {
-  "repos": PropTypes.array.isRequired
-}
+    repos: PropTypes.array.isRequired,
+};
 
 export default RepoList;

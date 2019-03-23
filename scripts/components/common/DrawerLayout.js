@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 Giovanni Orlando
+Copyright (c) 2019 Giovanni Orlando
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,56 +20,57 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-*/ 
+*/
+
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Toolbar from './Toolbar';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { View1, View2, View3 } from '../Views';
 import Drawer from './Drawer';
-import {View1, View2, View3} from '../Views';
+import Toolbar from './Toolbar';
 require('../../../static/styles/app.css');
 
 export default class DrawerLayout extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      "isDrawerOpen": false
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.toggleDrawer = this.toggleDrawer.bind(this);
-  }
-  toggleDrawer(event) {
-    this.setState({
-      "isDrawerOpen": !this.state.isDrawerOpen
-    });
-  }
-  handleClick(event) {
-    if (this.state.isDrawerOpen) {
-      this.toggleDrawer();
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDrawerOpen: false,
+        };
+        this.handleClick = this.handleClick.bind(this);
+        this.toggleDrawer = this.toggleDrawer.bind(this);
     }
-  }
-  render() {
-    return (
-      <div>
-        <Toolbar title="React Starter Kit" onButtonClick={this.toggleDrawer} />
-        <Router>
-          <div className="container">
+    toggleDrawer(event) {
+        this.setState({
+            isDrawerOpen: !this.state.isDrawerOpen,
+        });
+    }
+    handleClick(event) {
+        if (this.state.isDrawerOpen) {
+            this.toggleDrawer();
+        }
+    }
+    render() {
+        const { children } = this.props;
+        const { isDrawerOpen } = this.state;
+        return (
+            <div>
+                <Toolbar title="React Starter Kit" onButtonClick={this.toggleDrawer} />
+                <Router>
+                    <div className="container">
+                        <Drawer open={isDrawerOpen} callback={this.toggleDrawer} />
 
-            <Drawer open={this.state.isDrawerOpen} callback={this.toggleDrawer} />
+                        <main
+                            className={isDrawerOpen ? 'content toggled flex-center' : 'content flex-center'}
+                            onClick={this.handleClick}
+                        >
+                            {children}
 
-            <main className={this.state.isDrawerOpen
-              ? "content toggled flex-center"
-              : "content flex-center"} onClick={this.handleClick}>
-
-              {this.props.children}
-
-              <Route exact path="/react-starter-kit/" component={View1} />
-              <Route path="/react-starter-kit/view2" component={View2} />
-              <Route path="/react-starter-kit/view3" component={View3} />
-
-            </main>
-          </div>
-        </Router>
-      </div>
-    );
-  }
+                            <Route exact path="/react-starter-kit/" component={View1} />
+                            <Route path="/react-starter-kit/view2" component={View2} />
+                            <Route path="/react-starter-kit/view3" component={View3} />
+                        </main>
+                    </div>
+                </Router>
+            </div>
+        );
+    }
 }

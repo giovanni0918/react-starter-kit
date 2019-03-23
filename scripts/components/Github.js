@@ -1,7 +1,7 @@
 /*
 MIT License
 
-Copyright (c) 2017 Giovanni Orlando
+Copyright (c) 2019 Giovanni Orlando
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,49 +21,51 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import RepoList from './RepoList';
 
 const urlForUsername = username => `https://api.github.com/users/${username}/repos`;
 
 export default class Github extends Component {
-  constructor(props) {
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      repos: [],
-      loading: true,
-      requestFailed: false
+        this.state = {
+            repos: [],
+            loading: true,
+            requestFailed: false,
+        };
     }
-  }
 
-  componentDidMount() {
-    fetch(urlForUsername(this.props.username)).then((response) => {
-      if (!response.ok) {
-        this.setState({requestFailed: true, loading: false});
-        throw Error('Network request failed...');
-      }
-      response.json().then(data => {
-        this.setState({repos: data, loading: false});
-      });
-    }).catch((err) => {
-      this.setState({requestFailed: true, loading: false});
-      console.warn(err.message);
-    });
-  }
-
-  render() {
-    if (this.state.loading) {
-      return <p>Loading</p>;
-    } else if (this.state.requestFailed) {
-      return <p>Network request failed...</p>;
-    } else {
-      return <RepoList repos={this.state.repos}/>;
+    componentDidMount() {
+        fetch(urlForUsername(this.props.username))
+            .then(response => {
+                if (!response.ok) {
+                    this.setState({ requestFailed: true, loading: false });
+                    throw Error('Network request failed...');
+                }
+                response.json().then(data => {
+                    this.setState({ repos: data, loading: false });
+                });
+            })
+            .catch(err => {
+                this.setState({ requestFailed: true, loading: false });
+                console.warn(err.message);
+            });
     }
-  }
+
+    render() {
+        if (this.state.loading) {
+            return <p>Loading</p>;
+        } else if (this.state.requestFailed) {
+            return <p>Network request failed...</p>;
+        } else {
+            return <RepoList repos={this.state.repos} />;
+        }
+    }
 }
 
 Github.propTypes = {
-  "username": PropTypes.string.isRequired
+    username: PropTypes.string.isRequired,
 };
