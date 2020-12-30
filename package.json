@@ -1,14 +1,14 @@
 {
   "name": "react-starter-kit",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A React.js progressive-web-app starter-kit, built using Webpack module bundler and react-router.",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev && npm run serve",
-    "build": "NODE_ENV=production webpack -p --config webpack.config.js --colors",
-    "dev": "webpack --mode=development --config webpack.config.js --colors",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.js",
+    "dev": "webpack --mode=development --config webpack.config.js",
     "serve": "node ./server.js",
-    "windows-build": "set \"NODE_ENV=production\" && webpack -p --config webpack.config.js --colors"
+    "windows-build": "set \"NODE_ENV=production\" && webpack --mode=production --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -30,30 +30,30 @@
   },
   "homepage": "https://github.com/giovanni0918/react-starter-kit#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.7.0",
-    "@babel/runtime": "^7.7.7",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^4.3.1",
-    "workbox-sw": "^4.3.1"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "workbox-sw": "^6.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/plugin-transform-react-constant-elements": "^7.7.4",
-    "@babel/plugin-transform-react-inline-elements": "^7.7.4",
-    "@babel/plugin-transform-react-jsx": "^7.7.7",
-    "@babel/plugin-transform-runtime": "^7.7.6",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.1",
-    "file-loader": "^5.0.2",
-    "style-loader": "^1.1.2",
-    "url-loader": "^3.0.0",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-transform-react-constant-elements": "^7.12.1",
+    "@babel/plugin-transform-react-inline-elements": "^7.12.1",
+    "@babel/plugin-transform-react-jsx": "^7.12.12",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0"
   }
 }

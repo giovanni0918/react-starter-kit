@@ -1,5 +1,5 @@
 # react-starter-kit
-A React.js progressive-web-app starter-kit, built using [webpack@4.41.x](https://webpack.js.org) module bundler and [react-router-dom@4.31.x](https://reacttraining.com/react-router/web/guides/quick-start)
+A React.js progressive-web-app starter-kit, built using [webpack@5.11.x](https://webpack.js.org) module bundler and [react-router-dom@5.2.x](https://reacttraining.com/react-router/web/guides/quick-start)
 
 Includes a simple service worker setup via [workbox-sw](https://developers.google.com/web/tools/workbox/modules/workbox-sw).
 

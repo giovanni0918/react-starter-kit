@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'index.bundle': './scripts/index.js',
+        'index.bundle': './src/index.js',
     },
     output: {
         path: path.resolve(__dirname, 'static/bundles/'),
@@ -31,18 +31,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env', '@babel/preset-react'],
-                        plugins: [
-                            '@babel/plugin-transform-react-constant-elements',
-                            '@babel/plugin-transform-react-inline-elements',
-                            '@babel/plugin-transform-react-jsx',
-                            '@babel/plugin-transform-runtime',
-                        ],
-                    },
-                },
+                use: ['babel-loader'],
             },
         ],
     },
